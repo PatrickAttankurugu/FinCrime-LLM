@@ -5,9 +5,9 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/CONTRIBUTING.md)
 
-**AI-Powered Financial Crime Detection for African Markets**
+**Training a Large Language Model(LLM) For Financial Crime Detection for African Markets**
 
-Fine-tuned Mistral 7B model for generating Suspicious Activity Reports (SARs), KYC assessments, and transaction analysis tailored to African financial contexts.
+Fine-tunning Mistral 7B model for generating Suspicious Activity Reports (SARs), KYC assessments, and transaction analysis tailored to African financial contexts.
 
 ## Features
 
