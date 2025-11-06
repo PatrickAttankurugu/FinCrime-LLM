@@ -211,9 +211,6 @@ We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
-## Disclaimer
-
-This project is currently under active development and the model has not yet been trained or deployed. Once completed, the model will be intended for research and assistance purposes only. Financial institutions must ensure compliance with all applicable laws and regulations. Any future model outputs should be reviewed by qualified compliance professionals.
 
 ## Contact & Support
 
