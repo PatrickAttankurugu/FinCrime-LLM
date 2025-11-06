@@ -328,7 +328,7 @@ This model is for research and assistance purposes. Financial institutions must 
 
 - Report issues: [GitHub Issues](https://github.com/PatrickAttankurugu/FinCrime-LLM/issues)
 - Discussions: [GitHub Discussions](https://github.com/PatrickAttankurugu/FinCrime-LLM/discussions)
-- Email: patrick.attankurugu@example.com
+- Email: patricka.azuma@gmail.com
 
 ## Acknowledgments
 
