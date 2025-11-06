@@ -14,11 +14,9 @@ Fine-tunning Mistral 7B model for generating Suspicious Activity Reports (SARs),
 - **SAR Generation**: Automatically generate comprehensive Suspicious Activity Reports
 - **KYC Assessment**: Perform risk-based customer due diligence
 - **Transaction Analysis**: Detect suspicious patterns and red flags
-- **African Focus**: Covers Ghana, Nigeria, Kenya, South Africa, and more
-- **Production-Ready**: FastAPI backend, Streamlit demo, Docker support
 - **QLoRA Training**: Efficient 4-bit quantized training on consumer GPUs
 - **WandB Integration**: Track experiments and model performance
-- **Compliance-First**: Built with regulatory requirements in mind
+- **Compliance-First**: Building with regulatory requirements in mind
 
 ## Architecture
 
