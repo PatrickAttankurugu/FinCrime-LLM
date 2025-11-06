@@ -11,7 +11,7 @@ import json
 # Page config
 st.set_page_config(
     page_title="FinCrime-LLM Demo",
-    page_icon="=",
+    page_icon="üîç",
     layout="wide",
 )
 
@@ -28,7 +28,7 @@ API_BASE_URL = st.sidebar.text_input("API URL", "http://localhost:8000")
 
 # SAR Generator Page
 if page == "SAR Generator":
-    st.title("=® SAR Generator")
+    st.title("SAR Generator")
     st.markdown("Generate Suspicious Activity Reports from transaction data")
 
     col1, col2 = st.columns(2)
@@ -69,7 +69,7 @@ if page == "SAR Generator":
 
                 if response.status_code == 200:
                     result = response.json()
-                    st.success(f" SAR Generated: {result['report_id']}")
+                    st.success(f"SAR Generated: {result['report_id']}")
                     st.markdown("### Generated SAR")
                     st.text_area("SAR Content", result["sar_content"], height=400)
 
@@ -86,7 +86,7 @@ if page == "SAR Generator":
 
 # KYC Assessor Page
 elif page == "KYC Assessor":
-    st.title("=d KYC Assessor")
+    st.title("KYC Assessor")
     st.markdown("Perform customer due diligence assessments")
 
     col1, col2 = st.columns(2)
@@ -124,7 +124,7 @@ elif page == "KYC Assessor":
 
                 if response.status_code == 200:
                     result = response.json()
-                    st.success(f" Assessment Complete: {result['assessment_id']}")
+                    st.success(f"Assessment Complete: {result['assessment_id']}")
                     st.markdown("### KYC Assessment")
                     st.text_area("Assessment", result["kyc_content"], height=400)
                 else:
@@ -134,7 +134,7 @@ elif page == "KYC Assessor":
 
 # Transaction Analyzer Page
 elif page == "Transaction Analyzer":
-    st.title("=∞ Transaction Analyzer")
+    st.title("Transaction Analyzer")
     st.markdown("Analyze transactions for suspicious patterns")
 
     transactions = st.text_area(
@@ -165,7 +165,7 @@ elif page == "Transaction Analyzer":
 
                 if response.status_code == 200:
                     result = response.json()
-                    st.success(f" Analysis Complete: {result['analysis_id']}")
+                    st.success(f"Analysis Complete: {result['analysis_id']}")
                     st.markdown("### Analysis Results")
                     st.text_area("Analysis", result["analysis_content"], height=400)
                 else:
