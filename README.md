@@ -44,20 +44,6 @@ graph TB
     style H fill:#FF9800
 ```
 
-## Benchmarks
-
-| Metric | Score | Baseline | Notes |
-|--------|-------|----------|-------|
-| **ROUGE-L** | 0.72 | 0.45 | SAR generation quality |
-| **BLEU-4** | 0.68 | 0.38 | Linguistic fluency |
-| **Semantic Similarity** | 0.85 | 0.52 | Cosine similarity vs. expert SARs |
-| **Inference Speed** | ~2.3s | ~5.1s | Average response time (4-bit) |
-| **GPU Memory** | 6.2 GB | 24 GB | Peak usage during inference |
-| **Training Time** | 4.5h | N/A | 3 epochs on RTX 4090 |
-| **Regulatory Accuracy** | 91% | 67% | Correct references (human eval) |
-
-*Baseline: Mistral 7B zero-shot without fine-tuning*
-
 ## Project Structure
 
 ```
