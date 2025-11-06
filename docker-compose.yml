@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  # FinCrime-LLM API Service
+  api:
+    build: .
+    container_name: fincrime-llm-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./.env:/app/.env
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - LOG_LEVEL=INFO
+    env_file:
+      - .env
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    depends_on:
+      - redis
+      - postgres
+
+  # Redis for caching and rate limiting
+  redis:
+    image: redis:7-alpine
+    container_name: fincrime-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  # PostgreSQL for data storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: fincrime-postgres
+    environment:
+      - POSTGRES_DB=fincrime
+      - POSTGRES_USER=fincrime
+      - POSTGRES_PASSWORD=changeme
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  # Streamlit Demo
+  demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fincrime-demo
+    command: streamlit run demo/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  postgres_data:

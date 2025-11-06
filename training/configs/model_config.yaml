@@ -1,0 +1,60 @@
+# Model Configuration for FinCrime-LLM
+
+model:
+  # Base model
+  name: "mistralai/Mistral-7B-v0.1"
+  trust_remote_code: true
+
+  # Alternative models (uncomment to use)
+  # name: "mistralai/Mistral-7B-Instruct-v0.2"
+  # name: "NousResearch/Llama-2-7b-hf"
+
+tokenizer:
+  name: "mistralai/Mistral-7B-v0.1"
+  padding_side: "right"
+  truncation_side: "right"
+  add_eos_token: true
+  add_bos_token: true
+
+dataset:
+  # Data paths
+  train_path: "data/processed/sar_dataset_alpaca"
+  max_seq_length: 2048
+
+  # Data preprocessing
+  remove_unused_columns: false
+  num_proc: 4  # Number of processes for data loading
+
+  # Instruction format
+  instruction_template: |
+    ### Instruction:
+    {instruction}
+
+    ### Input:
+    {input}
+
+    ### Response:
+    {output}
+
+# Task-specific configurations
+tasks:
+  sar_generation:
+    description: "Generate Suspicious Activity Reports"
+    dataset: "data/processed/sar_dataset_alpaca"
+
+  kyc_assessment:
+    description: "Perform KYC risk assessments"
+    dataset: "data/processed/kyc_dataset_alpaca"
+
+  transaction_analysis:
+    description: "Analyze transactions for suspicious patterns"
+    dataset: "data/processed/transaction_dataset_alpaca"
+
+# Inference settings
+inference:
+  max_new_tokens: 1024
+  temperature: 0.7
+  top_p: 0.95
+  top_k: 50
+  repetition_penalty: 1.1
+  do_sample: true

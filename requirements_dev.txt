@@ -1,0 +1,41 @@
+# Install main requirements first
+-r requirements.txt
+
+# Development Tools
+pre-commit==3.5.0
+autopep8==2.0.4
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-asyncio==0.21.1
+pytest-mock==3.12.0
+pytest-xdist==3.5.0
+httpx==0.25.2  # For testing FastAPI
+
+# Code Quality
+black==23.11.0
+flake8==6.1.0
+isort==5.12.0
+mypy==1.7.1
+pylint==3.0.3
+bandit==1.7.5  # Security linting
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+sphinx-autodoc-typehints==1.25.2
+
+# Type Stubs
+types-requests==2.31.0.10
+types-pyyaml==6.0.12.12
+types-redis==4.6.0.11
+
+# Profiling and Debugging
+line-profiler==4.1.1
+memory-profiler==0.61.0
+py-spy==0.3.14
+
+# Notebook Development
+nbconvert==7.11.0
+nbformat==5.9.2
