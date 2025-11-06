@@ -1,0 +1,30 @@
+# LoRA Configuration for Fine-tuning Mistral 7B
+# QLoRA settings for efficient training on consumer GPUs
+
+lora:
+  r: 16  # LoRA rank (higher = more parameters, better quality)
+  lora_alpha: 32  # LoRA scaling factor (typically 2*r)
+  lora_dropout: 0.05  # Dropout for regularization
+  bias: "none"  # Don't train bias parameters
+  task_type: "CAUSAL_LM"
+
+  # Target modules (Mistral architecture)
+  target_modules:
+    - "q_proj"  # Query projection
+    - "k_proj"  # Key projection
+    - "v_proj"  # Value projection
+    - "o_proj"  # Output projection
+    - "gate_proj"  # Gate projection (MLP)
+    - "up_proj"  # Up projection (MLP)
+    - "down_proj"  # Down projection (MLP)
+
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"  # NormalFloat4 quantization
+  bnb_4bit_compute_dtype: "bfloat16"
+  bnb_4bit_use_double_quant: true  # Nested quantization for memory
+
+# Model settings
+model:
+  use_cache: false  # Required for gradient checkpointing
+  gradient_checkpointing: true  # Save memory
