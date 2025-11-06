@@ -1,0 +1,57 @@
+# Training Arguments Configuration
+# Optimized for QLoRA fine-tuning on Mistral 7B
+
+training:
+  # Basic settings
+  num_train_epochs: 3
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4  # Effective batch size = 16
+
+  # Optimization
+  learning_rate: 2.0e-4
+  weight_decay: 0.01
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.1
+  max_grad_norm: 1.0
+
+  # Precision
+  bf16: true  # Use bfloat16 for better stability
+  fp16: false
+  tf32: true  # Enable TensorFloat-32 on Ampere GPUs
+
+  # Optimizer
+  optim: "paged_adamw_8bit"  # Memory-efficient optimizer
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8
+
+  # Logging
+  logging_steps: 10
+  logging_first_step: true
+  report_to: ["wandb", "tensorboard"]
+
+  # Checkpointing
+  save_strategy: "steps"
+  save_steps: 100
+  save_total_limit: 3
+  load_best_model_at_end: true
+
+  # Evaluation
+  evaluation_strategy: "steps"
+  eval_steps: 100
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+
+  # Memory optimization
+  gradient_checkpointing: true
+  max_seq_length: 2048
+
+  # Reproducibility
+  seed: 42
+  data_seed: 42
+
+  # HuggingFace Hub
+  push_to_hub: false
+  hub_strategy: "end"
+  hub_private_repo: true
