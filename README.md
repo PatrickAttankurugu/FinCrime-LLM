@@ -5,20 +5,28 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/CONTRIBUTING.md)
 
-**Training a Large Language Model(LLM) For Financial Crime Detection for African Markets**
+**A Large Language Model (LLM) Project For Financial Crime Detection in African Markets**
 
-Fine-tunning Mistral 7B model for generating Suspicious Activity Reports (SARs), KYC assessments, and transaction analysis tailored to African financial contexts.
+This project aims to fine-tune the Mistral 7B model to generate Suspicious Activity Reports (SARs), KYC assessments, and transaction analysis tailored to African financial contexts. Currently in active development.
 
-## Features
+## Project Status
 
-- **SAR Generation**: Automatically generate comprehensive Suspicious Activity Reports
-- **KYC Assessment**: Perform risk-based customer due diligence
-- **Transaction Analysis**: Detect suspicious patterns and red flags
+**Work in Progress**: This model is currently under development. Training and deployment have not yet been completed. The codebase provides the infrastructure and workflows needed for:
+- Synthetic data generation
+- Model fine-tuning with QLoRA
+- API and demo interfaces (ready for when the model is trained)
+- Testing and evaluation frameworks
+
+## Planned Features
+
+- **SAR Generation**: Will automatically generate comprehensive Suspicious Activity Reports
+- **KYC Assessment**: Will perform risk-based customer due diligence
+- **Transaction Analysis**: Will detect suspicious patterns and red flags
 - **QLoRA Training**: Efficient 4-bit quantized training on consumer GPUs
 - **WandB Integration**: Track experiments and model performance
 - **Compliance-First**: Building with regulatory requirements in mind
 
-## Architecture
+## Planned Architecture
 
 ```mermaid
 graph TB
@@ -26,7 +34,7 @@ graph TB
     B -->|JSON SARs| C[Data Processing]
     C -->|Instruction Format| D[Training Dataset]
     D -->|QLoRA Fine-tuning| E[Mistral 7B]
-    E -->|Trained Model| F[Production Model]
+    E -->|Model to be Trained| F[Future Production Model]
 
     F --> G[FastAPI Backend]
     F --> H[Streamlit Demo]
@@ -39,7 +47,7 @@ graph TB
     M[User] --> H
     N[Client Apps] --> G
 
-    style F fill:#4CAF50
+    style F fill:#FFA500
     style G fill:#2196F3
     style H fill:#FF9800
 ```
@@ -74,6 +82,8 @@ FinCrime-LLM/
 ```
 
 ## Quick Start
+
+These instructions guide you through the development workflow for training and testing the model.
 
 ### Installation
 
@@ -128,17 +138,17 @@ python training/train_sar.py \
     --lora-alpha 32
 ```
 
-### 4. Run Inference
+### 4. Run Inference (After Training)
 
 ```bash
-# Generate a SAR
+# Generate a SAR (once model is trained)
 python inference/generate.py \
     --model models/sar-mistral-7b/final \
     --task sar \
     --input '{"country": "Ghana", "subject_name": "John Doe", "transactions": "..."}'
 ```
 
-### 5. Start the API
+### 5. Start the API (After Training)
 
 ```bash
 # Launch FastAPI server
@@ -152,10 +162,10 @@ API will be available at:
 - OpenAPI docs: http://localhost:8000/docs
 - Health check: http://localhost:8000/health
 
-### 6. Run the Demo
+### 6. Run the Demo (After Training)
 
 ```bash
-# Launch Streamlit demo
+# Launch Streamlit demo (once model is trained)
 cd demo
 streamlit run streamlit_app.py
 ```
@@ -189,7 +199,9 @@ This project uses:
 - **Optimization**: BF16 mixed precision, gradient checkpointing
 - **Framework**: HuggingFace Transformers + PEFT + TRL
 
-## Use Cases
+## Intended Use Cases
+
+Once the model is trained, it will support the following use cases:
 
 ### Anti-Money Laundering
 
@@ -197,6 +209,7 @@ This project uses:
 from inference.load_model import load_fincrime_model
 from inference.generate import generate_sar
 
+# After training is complete
 model, tokenizer = load_fincrime_model("models/sar-mistral-7b/final")
 
 transaction_data = {
@@ -257,13 +270,13 @@ pytest tests/test_api.py -v
 pytest tests/ --cov=. --cov-report=html
 ```
 
-## Model Performance
+## Planned Evaluation
 
-The model has been evaluated on:
+Once training is complete, the model will be evaluated on:
 - 500+ manually labeled test SARs
-- Cross-validated against expert compliance officers
-- Tested across 10 African countries
-- Evaluated on 8 major financial crime typologies
+- Cross-validation against expert compliance officers
+- Testing across 10 African countries
+- Evaluation on 8 major financial crime typologies
 
 ## African Financial Crime Coverage
 
@@ -306,7 +319,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## Disclaimer
 
-This model is for research and assistance purposes. Financial institutions must ensure compliance with all applicable laws and regulations. The model outputs should be reviewed by qualified compliance professionals.
+This project is currently under active development and the model has not yet been trained or deployed. Once completed, the model will be intended for research and assistance purposes only. Financial institutions must ensure compliance with all applicable laws and regulations. Any future model outputs should be reviewed by qualified compliance professionals.
 
 ## Contact & Support
 
