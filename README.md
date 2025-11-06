@@ -1,24 +1,24 @@
-# FinCrime-LLM: Financial Crime Detection for Africa
+# 🔍 FinCrime-LLM
 
-A specialized fine-tuned Mistral 7B model for detecting and preventing financial crime in African markets, with a focus on compliance and regulatory requirements.
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-## Overview
+**AI-Powered Financial Crime Detection for African Markets**
 
-This project fine-tunes the Mistral 7B language model to assist financial institutions, regulators, and compliance teams in:
+Fine-tuned Mistral 7B model for generating Suspicious Activity Reports (SARs), KYC assessments, and transaction analysis tailored to African financial contexts.
 
-- **Anti-Money Laundering (AML)**: Detecting suspicious transactions and patterns
-- **Fraud Detection**: Identifying fraudulent activities and schemes
-- **Compliance Monitoring**: Ensuring adherence to African financial regulations
-- **Risk Assessment**: Evaluating transaction and customer risk profiles
-- **Regulatory Reporting**: Generating compliant reports for regulatory bodies
+## 🌟 Features
 
-## Key Features
-
-- Fine-tuned on African financial crime patterns and regulations
-- Supports multiple African languages and contexts
-- Optimized for compliance with African regulatory frameworks
-- Low-latency inference for real-time transaction monitoring
-- Privacy-preserving model architecture
+- **🚨 SAR Generation**: Automatically generate comprehensive Suspicious Activity Reports
+- **👤 KYC Assessment**: Perform risk-based customer due diligence
+- **💰 Transaction Analysis**: Detect suspicious patterns and red flags
+- **🌍 African Focus**: Covers Ghana, Nigeria, Kenya, South Africa, and more
+- **⚡ Production-Ready**: FastAPI backend, Streamlit demo, Docker support
+- **🎯 QLoRA Training**: Efficient 4-bit quantized training on consumer GPUs
+- **📊 WandB Integration**: Track experiments and model performance
+- **🔒 Compliance-First**: Built with regulatory requirements in mind
 
 ## Project Structure
 
