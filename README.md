@@ -1,4 +1,4 @@
-# 🔍 FinCrime-LLM
+# FinCrime-LLM
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-green.svg)](LICENSE)
@@ -9,18 +9,18 @@
 
 Fine-tuned Mistral 7B model for generating Suspicious Activity Reports (SARs), KYC assessments, and transaction analysis tailored to African financial contexts.
 
-## 🌟 Features
+## Features
 
-- **🚨 SAR Generation**: Automatically generate comprehensive Suspicious Activity Reports
-- **👤 KYC Assessment**: Perform risk-based customer due diligence
-- **💰 Transaction Analysis**: Detect suspicious patterns and red flags
-- **🌍 African Focus**: Covers Ghana, Nigeria, Kenya, South Africa, and more
-- **⚡ Production-Ready**: FastAPI backend, Streamlit demo, Docker support
-- **🎯 QLoRA Training**: Efficient 4-bit quantized training on consumer GPUs
-- **📊 WandB Integration**: Track experiments and model performance
-- **🔒 Compliance-First**: Built with regulatory requirements in mind
+- **SAR Generation**: Automatically generate comprehensive Suspicious Activity Reports
+- **KYC Assessment**: Perform risk-based customer due diligence
+- **Transaction Analysis**: Detect suspicious patterns and red flags
+- **African Focus**: Covers Ghana, Nigeria, Kenya, South Africa, and more
+- **Production-Ready**: FastAPI backend, Streamlit demo, Docker support
+- **QLoRA Training**: Efficient 4-bit quantized training on consumer GPUs
+- **WandB Integration**: Track experiments and model performance
+- **Compliance-First**: Built with regulatory requirements in mind
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 graph TB
@@ -46,7 +46,7 @@ graph TB
     style H fill:#FF9800
 ```
 
-## 📊 Benchmarks
+## Benchmarks
 
 | Metric | Score | Baseline | Notes |
 |--------|-------|----------|-------|
@@ -60,7 +60,7 @@ graph TB
 
 *Baseline: Mistral 7B zero-shot without fine-tuning*
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 FinCrime-LLM/
@@ -89,7 +89,7 @@ FinCrime-LLM/
     └── final/          # Final trained models
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -110,7 +110,7 @@ cp .env.example .env
 # Edit .env with your API keys
 ```
 
-### 1️⃣ Generate Synthetic Training Data
+### 1. Generate Synthetic Training Data
 
 ```bash
 # Generate 100 synthetic SARs using GPT-4
@@ -120,7 +120,7 @@ python data/scripts/generate_synthetic_sars.py \
     --model gpt-4
 ```
 
-### 2️⃣ Prepare Training Data
+### 2. Prepare Training Data
 
 ```bash
 # Process raw SARs into instruction-tuning format
@@ -131,7 +131,7 @@ python data/scripts/prepare_sar_data.py \
     --include-analysis
 ```
 
-### 3️⃣ Train the Model
+### 3. Train the Model
 
 ```bash
 # Fine-tune Mistral 7B with QLoRA
@@ -144,7 +144,7 @@ python training/train_sar.py \
     --lora-alpha 32
 ```
 
-### 4️⃣ Run Inference
+### 4. Run Inference
 
 ```bash
 # Generate a SAR
@@ -154,7 +154,7 @@ python inference/generate.py \
     --input '{"country": "Ghana", "subject_name": "John Doe", "transactions": "..."}'
 ```
 
-### 5️⃣ Start the API
+### 5. Start the API
 
 ```bash
 # Launch FastAPI server
@@ -165,10 +165,10 @@ uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 API will be available at:
-- 🔗 OpenAPI docs: http://localhost:8000/docs
-- 🔗 Health check: http://localhost:8000/health
+- OpenAPI docs: http://localhost:8000/docs
+- Health check: http://localhost:8000/health
 
-### 6️⃣ Run the Demo
+### 6. Run the Demo
 
 ```bash
 # Launch Streamlit demo
@@ -176,7 +176,7 @@ cd demo
 streamlit run streamlit_app.py
 ```
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ```bash
 # Build and run with Docker Compose
@@ -186,15 +186,15 @@ docker-compose up -d
 # Access demo at http://localhost:8501
 ```
 
-## 📚 Documentation
+## Documentation
 
-- 📖 [Installation Guide](docs/INSTALL.md) - Detailed setup for Linux/Mac/Windows
-- 🎓 [Training Guide](docs/TRAINING.md) - Hyperparameter tuning and best practices
-- 🔌 [API Documentation](docs/API.md) - Complete endpoint reference
-- 📊 [Dataset Guide](docs/DATASET.md) - Data format and schema
-- 🤝 [Contributing](docs/CONTRIBUTING.md) - How to contribute
+- [Installation Guide](docs/INSTALL.md) - Detailed setup for Linux/Mac/Windows
+- [Training Guide](docs/TRAINING.md) - Hyperparameter tuning and best practices
+- [API Documentation](docs/API.md) - Complete endpoint reference
+- [Dataset Guide](docs/DATASET.md) - Data format and schema
+- [Contributing](docs/CONTRIBUTING.md) - How to contribute
 
-## 🎯 Training Approach
+## Training Approach
 
 This project uses:
 
@@ -205,7 +205,7 @@ This project uses:
 - **Optimization**: BF16 mixed precision, gradient checkpointing
 - **Framework**: HuggingFace Transformers + PEFT + TRL
 
-## 💡 Use Cases
+## Use Cases
 
 ### Anti-Money Laundering
 
@@ -260,7 +260,7 @@ analysis = generate_transaction_analysis(model, tokenizer, transaction_data)
 print(analysis)
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -273,15 +273,15 @@ pytest tests/test_api.py -v
 pytest tests/ --cov=. --cov-report=html
 ```
 
-## 📊 Model Performance
+## Model Performance
 
 The model has been evaluated on:
-- ✅ 500+ manually labeled test SARs
-- ✅ Cross-validated against expert compliance officers
-- ✅ Tested across 10 African countries
-- ✅ Evaluated on 8 major financial crime typologies
+- 500+ manually labeled test SARs
+- Cross-validated against expert compliance officers
+- Tested across 10 African countries
+- Evaluated on 8 major financial crime typologies
 
-## 🌍 African Financial Crime Coverage
+## African Financial Crime Coverage
 
 **Countries**: Ghana, Nigeria, Kenya, South Africa, Tanzania, Uganda, Rwanda, Zambia, Botswana, Ethiopia
 
@@ -302,35 +302,35 @@ The model has been evaluated on:
 - ESAAMLG (Eastern and Southern Africa Anti-Money Laundering Group)
 - National regulations (FIC Act, AML Acts, CBN guidelines, etc.)
 
-## ⚖️ Regulatory Compliance
+## Regulatory Compliance
 
 This model is designed to **assist** with compliance but should not be used as the sole decision-making tool. Always:
 
-- ✅ Have human oversight for critical decisions
-- ✅ Regularly audit model outputs
-- ✅ Stay updated with regulatory changes
-- ✅ Consult legal experts for regulatory interpretation
-- ✅ Maintain comprehensive audit trails
+- Have human oversight for critical decisions
+- Regularly audit model outputs
+- Stay updated with regulatory changes
+- Consult legal experts for regulatory interpretation
+- Maintain comprehensive audit trails
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
 
-## 📄 License
+## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This model is for research and assistance purposes. Financial institutions must ensure compliance with all applicable laws and regulations. The model outputs should be reviewed by qualified compliance professionals.
 
-## 📞 Contact & Support
+## Contact & Support
 
-- 🐛 Report issues: [GitHub Issues](https://github.com/PatrickAttankurugu/FinCrime-LLM/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/PatrickAttankurugu/FinCrime-LLM/discussions)
-- 📧 Email: patrick.attankurugu@example.com
+- Report issues: [GitHub Issues](https://github.com/PatrickAttankurugu/FinCrime-LLM/issues)
+- Discussions: [GitHub Discussions](https://github.com/PatrickAttankurugu/FinCrime-LLM/discussions)
+- Email: patrick.attankurugu@example.com
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Mistral AI](https://mistral.ai/) for the base model
 - [HuggingFace](https://huggingface.co/) for the excellent ML ecosystem
@@ -339,5 +339,5 @@ This model is for research and assistance purposes. Financial institutions must 
 
 ---
 
-**⭐ If you find this project useful, please consider giving it a star!**
+**If you find this project useful, please consider giving it a star!**
 
