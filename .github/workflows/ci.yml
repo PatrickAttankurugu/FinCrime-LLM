@@ -76,4 +76,4 @@ jobs:
 
     - name: Test Docker image
       run: |
-        docker run --rm fincrime-llm:${{ github.sha }} python -c "print('Docker build successful')"
+        docker run --rm fincrime-llm:${{ github.sha }} python3 -c "print('Docker build successful')"
