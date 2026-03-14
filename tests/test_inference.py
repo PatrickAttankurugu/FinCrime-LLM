@@ -104,9 +104,7 @@ class TestTransactionAnalysis:
     """Test transaction analysis."""
 
     @patch("inference.generate.create_analysis_prompt")
-    def test_generate_transaction_analysis(
-        self, mock_create_prompt, mock_model, mock_tokenizer
-    ):
+    def test_generate_transaction_analysis(self, mock_create_prompt, mock_model, mock_tokenizer):
         """Test transaction analysis generation."""
         from inference.generate import generate_transaction_analysis
 
@@ -149,9 +147,7 @@ class TestBatchGeneration:
         mock_generate_sar.return_value = "Generated SAR"
 
         # Run batch generation
-        batch_generate(
-            mock_model, mock_tokenizer, str(input_file), str(output_file), task="sar"
-        )
+        batch_generate(mock_model, mock_tokenizer, str(input_file), str(output_file), task="sar")
 
         # Verify output file was created
         assert output_file.exists()

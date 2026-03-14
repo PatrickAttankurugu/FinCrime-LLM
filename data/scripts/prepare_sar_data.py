@@ -244,7 +244,9 @@ def split_dataset(
     val_data = data[train_size : train_size + val_size]
     test_data = data[train_size + val_size :]
 
-    logger.info(f"Split sizes - Train: {len(train_data)}, Val: {len(val_data)}, Test: {len(test_data)}")
+    logger.info(
+        f"Split sizes - Train: {len(train_data)}, Val: {len(val_data)}, Test: {len(test_data)}"
+    )
 
     return train_data, val_data, test_data
 

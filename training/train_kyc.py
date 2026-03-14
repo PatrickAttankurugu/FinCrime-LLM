@@ -23,7 +23,9 @@ def main():
     parser = argparse.ArgumentParser(description="Fine-tune Mistral 7B for KYC assessment")
 
     parser.add_argument("--data", type=str, required=True, help="Path to KYC training data")
-    parser.add_argument("--output", type=str, default="models/kyc-mistral-7b", help="Output directory")
+    parser.add_argument(
+        "--output", type=str, default="models/kyc-mistral-7b", help="Output directory"
+    )
     parser.add_argument("--model", type=str, default="mistralai/Mistral-7B-v0.1", help="Base model")
     parser.add_argument("--epochs", type=int, default=3, help="Number of epochs")
     parser.add_argument("--batch-size", type=int, default=4, help="Batch size")

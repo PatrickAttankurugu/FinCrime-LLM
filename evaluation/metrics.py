@@ -12,9 +12,9 @@ logger = logging.getLogger(__name__)
 
 def compute_rouge(predictions: List[str], references: List[str]) -> Dict:
     """Compute ROUGE scores."""
-    scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
+    scorer = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=True)
 
-    scores = {'rouge1': [], 'rouge2': [], 'rougeL': []}
+    scores = {"rouge1": [], "rouge2": [], "rougeL": []}
 
     for pred, ref in zip(predictions, references):
         score = scorer.score(ref, pred)
@@ -43,5 +43,5 @@ def evaluate_generation(predictions: List[str], references: List[str]) -> Dict:
 
     return {
         **rouge_scores,
-        'bleu': bleu_score,
+        "bleu": bleu_score,
     }

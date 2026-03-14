@@ -65,7 +65,9 @@ def main():
     parser.add_argument("--sar-data", type=str, help="Path to SAR dataset")
     parser.add_argument("--kyc-data", type=str, help="Path to KYC dataset")
     parser.add_argument("--transaction-data", type=str, help="Path to transaction dataset")
-    parser.add_argument("--output", type=str, default="models/fincrime-mistral-7b", help="Output dir")
+    parser.add_argument(
+        "--output", type=str, default="models/fincrime-mistral-7b", help="Output dir"
+    )
     parser.add_argument("--model", type=str, default="mistralai/Mistral-7B-v0.1", help="Base model")
     parser.add_argument("--epochs", type=int, default=3, help="Epochs")
     parser.add_argument("--batch-size", type=int, default=4, help="Batch size")

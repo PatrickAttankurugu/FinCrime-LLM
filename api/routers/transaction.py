@@ -18,7 +18,9 @@ router = APIRouter()
 
 @router.post("/analyze", response_model=TransactionAnalysisResponse)
 @limiter.limit("15/minute")
-async def analyze_transaction_endpoint(request: Request, analysis_request: TransactionAnalysisRequest):
+async def analyze_transaction_endpoint(
+    request: Request, analysis_request: TransactionAnalysisRequest
+):
     """Analyze transactions for suspicious patterns."""
     try:
         model = request.app.MODEL_CACHE.get("model")

@@ -155,7 +155,9 @@ def setup_lora(
     # Print trainable parameters
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     total_params = sum(p.numel() for p in model.parameters())
-    logger.info(f"Trainable parameters: {trainable_params:,} ({trainable_params/total_params*100:.2f}%)")
+    logger.info(
+        f"Trainable parameters: {trainable_params:,} ({trainable_params/total_params*100:.2f}%)"
+    )
 
     return model
 
@@ -315,9 +317,11 @@ def train(
         max_seq_length=max_seq_length,
         dataset_text_field="text" if "text" in dataset["train"].column_names else None,
         formatting_func=(
-            lambda x: f"### Instruction:\n{x['instruction']}\n\n### Input:\n{x['input']}\n\n### Response:\n{x['output']}"
-            if "instruction" in dataset["train"].column_names
-            else None
+            lambda x: (
+                f"### Instruction:\n{x['instruction']}\n\n### Input:\n{x['input']}\n\n### Response:\n{x['output']}"
+                if "instruction" in dataset["train"].column_names
+                else None
+            )
         ),
     )
 

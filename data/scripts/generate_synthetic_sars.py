@@ -198,9 +198,7 @@ def generate_sar(
             return sar_data
 
         except json.JSONDecodeError as e:
-            logger.warning(
-                f"Attempt {attempt + 1}/{max_retries}: Failed to parse JSON: {e}"
-            )
+            logger.warning(f"Attempt {attempt + 1}/{max_retries}: Failed to parse JSON: {e}")
             if attempt == max_retries - 1:
                 logger.error(f"Failed to generate valid SAR after {max_retries} attempts")
                 return None

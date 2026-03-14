@@ -73,7 +73,7 @@ def generate_text(
     if "### Response:" in generated_text:
         response = generated_text.split("### Response:")[-1].strip()
     else:
-        response = generated_text[len(prompt):].strip()
+        response = generated_text[len(prompt) :].strip()
 
     return response
 
@@ -208,11 +208,11 @@ def main():
         else:
             output = generate_transaction_analysis(model, tokenizer, input_data, **gen_kwargs)
 
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print(f"{args.task.upper()} OUTPUT:")
-        print("="*80)
+        print("=" * 80)
         print(output)
-        print("="*80)
+        print("=" * 80)
     else:
         parser.error("Either --input or --input-file required")
 

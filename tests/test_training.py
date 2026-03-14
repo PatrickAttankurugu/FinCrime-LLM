@@ -46,7 +46,9 @@ class TestModelSetup:
         from training.train_sar import setup_lora
 
         mock_model = Mock()
-        mock_model.parameters.return_value = [Mock(numel=Mock(return_value=100), requires_grad=True)]
+        mock_model.parameters.return_value = [
+            Mock(numel=Mock(return_value=100), requires_grad=True)
+        ]
 
         mock_prepared_model = Mock()
         mock_prepared_model.parameters.return_value = mock_model.parameters()
