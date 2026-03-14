@@ -14,8 +14,8 @@ from pathlib import Path
 from typing import Dict, List, Optional
 
 import torch
-from load_model import load_fincrime_model
-from prompts import create_sar_prompt, create_kyc_prompt, create_analysis_prompt
+from inference.load_model import load_fincrime_model
+from inference.prompts import create_sar_prompt, create_kyc_prompt, create_analysis_prompt
 from tqdm import tqdm
 
 logging.basicConfig(level=logging.INFO)
