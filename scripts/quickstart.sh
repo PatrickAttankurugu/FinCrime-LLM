@@ -22,21 +22,19 @@ echo "Installing dependencies..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Create sample data
-echo "Creating sample dataset..."
-python src/data/prepare_dataset.py --create-sample
-
-# Run data preprocessing
-echo "Processing dataset..."
-python src/data/prepare_dataset.py --input data/raw --output data/processed
+# Create necessary directories
+mkdir -p data/raw data/processed data/datasets
+mkdir -p models/checkpoints models/final
+mkdir -p logs
 
 echo "=========================================="
 echo "Setup complete!"
 echo "=========================================="
 echo ""
 echo "Next steps:"
-echo "1. Review the generated dataset in data/datasets/"
-echo "2. Adjust training config in configs/training_config.yaml"
-echo "3. Start training: python src/training/train.py"
+echo "1. Copy .env.example to .env and add your API keys"
+echo "2. Generate synthetic data: python data/scripts/generate_synthetic_sars.py --count 500 --output data/raw/synthetic_sars.jsonl"
+echo "3. Prepare data: python data/scripts/prepare_sar_data.py --input data/raw/synthetic_sars.jsonl --output data/processed/"
+echo "4. Start training: python training/train_sar.py --data data/processed/sar_dataset_alpaca --output models/sar-mistral-7b"
 echo ""
 echo "For more information, see README.md"

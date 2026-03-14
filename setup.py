@@ -10,16 +10,16 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="fincrime-llm",
-    version="1.0.0",
+    version="0.1.0",
     author="Patrick Attankurugu",
-    author_email="your.email@example.com",
+    author_email="patricka.azuma@gmail.com",
     description="AI-powered financial crime detection for African markets",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/PatrickAttankurugu/FinCrime-LLM",
     packages=find_packages(),
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 3 - Alpha",
         "Intended Audience :: Financial and Insurance Industry",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "License :: OSI Approved :: Apache Software License",

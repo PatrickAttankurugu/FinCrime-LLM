@@ -57,28 +57,30 @@ graph TB
 ```
 FinCrime-LLM/
 ├── api/                  # FastAPI backend
-│   ├── routers/         # API endpoints (SAR, KYC, Transaction, Compliance)
-│   ├── models/          # Pydantic schemas
-│   └── utils/           # Auth, logging utilities
+│   ├── routers/          # API endpoints (SAR, KYC, Transaction, Compliance)
+│   ├── models/           # Pydantic schemas
+│   └── utils/            # Auth, logging utilities
 ├── data/
-│   ├── raw/             # Raw financial crime datasets
-│   ├── processed/       # Cleaned and preprocessed data
-│   ├── datasets/        # Training/validation/test splits
-│   └── scripts/         # Data generation & preparation
-├── training/            # Training scripts and configs
-│   ├── configs/        # YAML configuration files
-│   └── train_*.py      # Training scripts
-├── inference/           # Inference utilities
-│   ├── generate.py     # Generation functions
-│   ├── load_model.py   # Model loading
-│   └── prompts.py      # Prompt templates
-├── demo/               # Streamlit demo app
-├── notebooks/          # Jupyter notebooks (5 tutorials)
-├── tests/              # Comprehensive test suite
-├── docs/               # Full documentation
+│   ├── raw/              # Raw financial crime datasets
+│   ├── processed/        # Cleaned and preprocessed data
+│   ├── datasets/         # Training/validation/test splits
+│   └── scripts/          # Data generation and preparation
+├── training/             # Training scripts and configs
+│   ├── configs/          # YAML configuration files
+│   └── train_*.py        # Training scripts (SAR, KYC, multitask)
+├── inference/            # Inference and generation
+│   ├── generate.py       # Text generation with CLI
+│   ├── load_model.py     # Model loading utilities
+│   └── prompts.py        # Prompt templates
+├── evaluation/           # Evaluation scripts and metrics
+├── demo/                 # Streamlit interactive demo
+├── notebooks/            # Jupyter notebooks (tutorials)
+├── tests/                # Test suite
+├── docs/                 # Documentation
+├── scripts/              # Setup and utility scripts
 └── models/
-    ├── checkpoints/    # Model checkpoints during training
-    └── final/          # Final trained models
+    ├── checkpoints/      # Training checkpoints
+    └── final/            # Final trained models
 ```
 
 
