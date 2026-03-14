@@ -69,14 +69,18 @@ class TestDataLoading:
     """Test data loading functionality."""
 
     @patch("training.train_sar.load_from_disk")
-    def test_load_training_data_from_disk(self, mock_load_disk):
+    def test_load_training_data_from_disk(self, mock_load_disk, tmp_path):
         """Test loading data from disk."""
         from training.train_sar import load_training_data
 
         mock_dataset = {"train": [], "validation": []}
         mock_load_disk.return_value = mock_dataset
 
-        dataset = load_training_data("data/processed/sar_dataset_alpaca")
+        # Use a real directory so Path.exists() returns True
+        data_dir = tmp_path / "test_dataset"
+        data_dir.mkdir()
+
+        dataset = load_training_data(str(data_dir))
 
         mock_load_disk.assert_called_once()
         assert dataset == mock_dataset

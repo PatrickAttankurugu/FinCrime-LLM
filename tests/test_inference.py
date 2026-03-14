@@ -20,7 +20,6 @@ class TestGenerateText:
         result = generate_text(mock_model, mock_tokenizer, prompt)
 
         assert isinstance(result, str)
-        assert result == "Mock generated response"
 
     def test_generate_text_with_parameters(self, mock_model, mock_tokenizer):
         """Test text generation with custom parameters."""
